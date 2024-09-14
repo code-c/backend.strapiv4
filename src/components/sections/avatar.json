@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_avatars",
+  "info": {
+    "displayName": "Avatar",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    }
+  }
+}
