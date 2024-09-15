@@ -1,17 +1,18 @@
 {
   "collectionName": "components_sections_experience_groups",
   "info": {
-    "displayName": "Experience Group",
-    "icon": "server"
+    "displayName": "experienceGroup",
+    "icon": "server",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Experience": {
+    "experience": {
       "type": "component",
       "repeatable": true,
       "component": "elements.experience-item"
     },
-    "Heading": {
+    "heading": {
       "type": "string"
     }
   }

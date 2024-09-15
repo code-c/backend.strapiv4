@@ -32,10 +32,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "slug": {
-      "type": "customField",
-      "customField": "plugin::strapi-advanced-uuid.uuid"
     }
   }
 }

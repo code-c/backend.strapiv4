@@ -20,7 +20,7 @@
       "type": "string"
     },
     "description": {
-      "type": "blocks"
+      "type": "richtext"
     },
     "logo": {
       "type": "media",
@@ -29,10 +29,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "slug": {
-      "type": "customField",
-      "customField": "plugin::strapi-advanced-uuid.uuid"
     }
   }
 }

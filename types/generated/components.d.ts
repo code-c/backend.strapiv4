@@ -64,37 +64,40 @@ export interface SectionsHeading extends Schema.Component {
 export interface SectionsExperienceGroup extends Schema.Component {
   collectionName: 'components_sections_experience_groups';
   info: {
-    displayName: 'Experience Group';
+    displayName: 'experienceGroup';
     icon: 'server';
+    description: '';
   };
   attributes: {
-    Experience: Attribute.Component<'elements.experience-item', true>;
-    Heading: Attribute.String;
+    experience: Attribute.Component<'elements.experience-item', true>;
+    heading: Attribute.String;
   };
 }
 
 export interface SectionsEducationGroup extends Schema.Component {
   collectionName: 'components_sections_education_groups';
   info: {
-    displayName: 'Education Group';
+    displayName: 'educationGroup';
     icon: 'server';
+    description: '';
   };
   attributes: {
-    Education: Attribute.Component<'elements.education-item', true>;
-    Heading: Attribute.String;
+    education: Attribute.Component<'elements.education-item', true>;
+    heading: Attribute.String;
   };
 }
 
 export interface SectionsAvatar extends Schema.Component {
   collectionName: 'components_sections_avatars';
   info: {
-    displayName: 'Avatar';
+    displayName: 'avatar';
     icon: 'user';
+    description: '';
   };
   attributes: {
-    Image: Attribute.Media<'images'>;
-    Title: Attribute.String;
-    Description: Attribute.Text;
+    image: Attribute.Media<'images'>;
+    title: Attribute.String;
+    description: Attribute.Text;
   };
 }
 
@@ -239,10 +242,8 @@ export interface ElementsExperienceItem extends Schema.Component {
     finishDate: Attribute.Date;
     role: Attribute.String;
     employer: Attribute.String;
-    description: Attribute.Blocks;
+    description: Attribute.RichText;
     logo: Attribute.Media<'images'>;
-    slug: Attribute.UID &
-      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
   };
 }
 
@@ -261,8 +262,6 @@ export interface ElementsEducationItem extends Schema.Component {
     minors: Attribute.Text;
     schoolDescription: Attribute.Text;
     logo: Attribute.Media<'images'>;
-    slug: Attribute.UID &
-      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
   };
 }
 

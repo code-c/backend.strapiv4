@@ -1,17 +1,18 @@
 {
   "collectionName": "components_sections_education_groups",
   "info": {
-    "displayName": "Education Group",
-    "icon": "server"
+    "displayName": "educationGroup",
+    "icon": "server",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Education": {
+    "education": {
       "type": "component",
       "repeatable": true,
       "component": "elements.education-item"
     },
-    "Heading": {
+    "heading": {
       "type": "string"
     }
   }
