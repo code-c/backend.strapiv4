@@ -113,6 +113,52 @@ export interface MetaMetadata extends Schema.Component {
   };
 }
 
+export interface LayoutNavbar extends Schema.Component {
+  collectionName: 'components_layout_navbars';
+  info: {
+    displayName: 'Navbar';
+    icon: 'house';
+    description: '';
+  };
+  attributes: {
+    links: Attribute.Component<'links.link', true>;
+    button: Attribute.Component<'links.button'>;
+    navbarLogo: Attribute.Component<'layout.logo'>;
+    slug: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
+  };
+}
+
+export interface LayoutLogo extends Schema.Component {
+  collectionName: 'components_layout_logos';
+  info: {
+    displayName: 'Logo';
+    icon: 'apps';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media<'images'>;
+    text: Attribute.String;
+  };
+}
+
+export interface LayoutFooter extends Schema.Component {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'Footer';
+    icon: 'bulletList';
+    description: '';
+  };
+  attributes: {
+    footerLogo: Attribute.Component<'layout.logo'>;
+    menuLinks: Attribute.Component<'links.link', true>;
+    legalLinks: Attribute.Component<'links.link', true>;
+    socialLinks: Attribute.Component<'links.social', true>;
+    slug: Attribute.UID &
+      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
+  };
+}
+
 export interface LinksSocial extends Schema.Component {
   collectionName: 'components_links_socials';
   info: {
@@ -163,52 +209,6 @@ export interface LinksButton extends Schema.Component {
     text: Attribute.String;
     newTab: Attribute.Boolean;
     type: Attribute.Enumeration<['primary', 'secondary']>;
-  };
-}
-
-export interface LayoutNavbar extends Schema.Component {
-  collectionName: 'components_layout_navbars';
-  info: {
-    displayName: 'Navbar';
-    icon: 'house';
-    description: '';
-  };
-  attributes: {
-    links: Attribute.Component<'links.link', true>;
-    button: Attribute.Component<'links.button'>;
-    navbarLogo: Attribute.Component<'layout.logo'>;
-    slug: Attribute.UID &
-      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
-  };
-}
-
-export interface LayoutLogo extends Schema.Component {
-  collectionName: 'components_layout_logos';
-  info: {
-    displayName: 'Logo';
-    icon: 'apps';
-    description: '';
-  };
-  attributes: {
-    image: Attribute.Media<'images'>;
-    text: Attribute.String;
-  };
-}
-
-export interface LayoutFooter extends Schema.Component {
-  collectionName: 'components_layout_footers';
-  info: {
-    displayName: 'Footer';
-    icon: 'bulletList';
-    description: '';
-  };
-  attributes: {
-    footerLogo: Attribute.Component<'layout.logo'>;
-    menuLinks: Attribute.Component<'links.link', true>;
-    legalLinks: Attribute.Component<'links.link', true>;
-    socialLinks: Attribute.Component<'links.social', true>;
-    slug: Attribute.UID &
-      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
   };
 }
 
@@ -275,12 +275,12 @@ declare module '@strapi/types' {
       'sections.education-group': SectionsEducationGroup;
       'sections.avatar': SectionsAvatar;
       'meta.metadata': MetaMetadata;
-      'links.social': LinksSocial;
-      'links.link': LinksLink;
-      'links.button': LinksButton;
       'layout.navbar': LayoutNavbar;
       'layout.logo': LayoutLogo;
       'layout.footer': LayoutFooter;
+      'links.social': LinksSocial;
+      'links.link': LinksLink;
+      'links.button': LinksButton;
       'elements.notification-banner': ElementsNotificationBanner;
       'elements.experience-item': ElementsExperienceItem;
       'elements.education-item': ElementsEducationItem;
