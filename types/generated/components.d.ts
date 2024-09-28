@@ -51,6 +51,18 @@ export interface SharedMetaSocial extends Schema.Component {
   };
 }
 
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    displayName: 'metadata';
+    icon: 'information';
+  };
+  attributes: {
+    metaTitle: Attribute.String;
+    metaDescription: Attribute.Text;
+  };
+}
+
 export interface SectionsHeading extends Schema.Component {
   collectionName: 'components_sections_headings';
   info: {
@@ -58,6 +70,27 @@ export interface SectionsHeading extends Schema.Component {
   };
   attributes: {
     heading: Attribute.String;
+  };
+}
+
+export interface SectionsForm extends Schema.Component {
+  collectionName: 'components_sections_forms';
+  info: {
+    displayName: 'Form';
+    icon: 'layer';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String & Attribute.Required;
+    socialLinks: Attribute.Component<'links.social', true>;
+    content: Attribute.RichText;
+    description: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'default';
+        }
+      >;
   };
 }
 
@@ -101,18 +134,6 @@ export interface SectionsAvatar extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    displayName: 'metadata';
-    icon: 'information';
-  };
-  attributes: {
-    metaTitle: Attribute.String;
-    metaDescription: Attribute.Text;
-  };
-}
-
 export interface LayoutNavbar extends Schema.Component {
   collectionName: 'components_layout_navbars';
   info: {
@@ -124,8 +145,6 @@ export interface LayoutNavbar extends Schema.Component {
     links: Attribute.Component<'links.link', true>;
     button: Attribute.Component<'links.button'>;
     navbarLogo: Attribute.Component<'layout.logo'>;
-    slug: Attribute.UID &
-      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
   };
 }
 
@@ -154,8 +173,6 @@ export interface LayoutFooter extends Schema.Component {
     menuLinks: Attribute.Component<'links.link', true>;
     legalLinks: Attribute.Component<'links.link', true>;
     socialLinks: Attribute.Component<'links.social', true>;
-    slug: Attribute.UID &
-      Attribute.CustomField<'plugin::strapi-advanced-uuid.uuid'>;
   };
 }
 
@@ -270,11 +287,12 @@ declare module '@strapi/types' {
     export interface Components {
       'shared.seo': SharedSeo;
       'shared.meta-social': SharedMetaSocial;
+      'meta.metadata': MetaMetadata;
       'sections.heading': SectionsHeading;
+      'sections.form': SectionsForm;
       'sections.experience-group': SectionsExperienceGroup;
       'sections.education-group': SectionsEducationGroup;
       'sections.avatar': SectionsAvatar;
-      'meta.metadata': MetaMetadata;
       'layout.navbar': LayoutNavbar;
       'layout.logo': LayoutLogo;
       'layout.footer': LayoutFooter;

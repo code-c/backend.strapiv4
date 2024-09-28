@@ -1,4 +1,4 @@
-export default () => ({
+export default ({ env }) => ({
 
 'duplicate-button': true,
 'drag-drop-content-types': {
@@ -20,12 +20,20 @@ export default () => ({
     },
   email: {
     config: {
-	provider: 'sendmail',
-    	settings: {
-      		defaultFrom: 'no-reply@codies-studio.dev',
-      		defaultReplyTo: 'codec@codies-studio.dev',
-   		},
-  	},
+      provider: 'nodemailer',
+      providerOptions: {
+        host: env('SMTP_HOST'),
+        port: env('SMTP_PORT'),
+	ignoreTLS: true,
+        auth: {
+          user: env('SMTP_USERNAME'),
+          pass: env('SMTP_PASSWORD'),
+        },
+      },
+      settings: {
+        defaultFrom: 'no-reply@codies-studio.dev',
+        defaultReplyTo: 'codec@codies-studio.dev',
+      },
+    },
   },
-
 });

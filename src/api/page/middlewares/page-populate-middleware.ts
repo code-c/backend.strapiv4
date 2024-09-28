@@ -2,39 +2,6 @@
  * `page-populate-middleware` middleware
  */
 
-const populate_contentBlocks = {
-   populate: {
-     contentBlocks: {
-	on: {
-      'sections.heading': {
-        populate: '*',
-      },
-      'sections.experience-group': {
-        populate: {
-          'experience': {
-	        populate: ['logo'], //["startDate", "finishDate", "role", "employer", "description", "logo", "slug"],
-	     },
-	  },
-        },
-      'sections.education-group': {
-        populate: {
-         'education': {
-		populate: ['logo'], // fields: ["start", "finish", "school", "degree", "minors", "schoolDescription", "logo", "slug"],
-	  },
-        },
-      },
-      'sections.avatar': {
-        populate: ["image"],
-	}, 
-    },
-  },
-  },
-  seo: {
-    fields: ["metaTitle", "metaDescription"],
-    populate: ['shareImage'],
-  },
-};
-
 const populate = {
    Seo: {
      populate: {
@@ -63,6 +30,9 @@ const populate = {
         image: {
           populate: true,
         },
+	socialLinks: {
+	    populate: true,
+	},
       },
     },
 };

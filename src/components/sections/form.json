@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_forms",
+  "info": {
+    "displayName": "Form",
+    "icon": "layer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links.social"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    }
+  }
+}

@@ -26,10 +26,6 @@
       "type": "component",
       "repeatable": true,
       "component": "links.social"
-    },
-    "slug": {
-      "type": "customField",
-      "customField": "plugin::strapi-advanced-uuid.uuid"
     }
   }
 }
