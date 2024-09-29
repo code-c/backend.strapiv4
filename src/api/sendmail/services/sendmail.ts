@@ -3,7 +3,7 @@
  */
 
 export default ({ strapi }) => ({
-  send: async (ctx) => {
+  emailService: async (ctx) => {
     try {
       const input = ctx.request.body.data?.input;
       const emailTo = ctx.request.body.data?.emailTo;

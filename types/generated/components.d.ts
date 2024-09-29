@@ -51,18 +51,6 @@ export interface SharedMetaSocial extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    displayName: 'metadata';
-    icon: 'information';
-  };
-  attributes: {
-    metaTitle: Attribute.String;
-    metaDescription: Attribute.Text;
-  };
-}
-
 export interface SectionsHeading extends Schema.Component {
   collectionName: 'components_sections_headings';
   info: {
@@ -134,45 +122,15 @@ export interface SectionsAvatar extends Schema.Component {
   };
 }
 
-export interface LayoutNavbar extends Schema.Component {
-  collectionName: 'components_layout_navbars';
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
   info: {
-    displayName: 'Navbar';
-    icon: 'house';
-    description: '';
+    displayName: 'metadata';
+    icon: 'information';
   };
   attributes: {
-    links: Attribute.Component<'links.link', true>;
-    button: Attribute.Component<'links.button'>;
-    navbarLogo: Attribute.Component<'layout.logo'>;
-  };
-}
-
-export interface LayoutLogo extends Schema.Component {
-  collectionName: 'components_layout_logos';
-  info: {
-    displayName: 'Logo';
-    icon: 'apps';
-    description: '';
-  };
-  attributes: {
-    image: Attribute.Media<'images'>;
-    text: Attribute.String;
-  };
-}
-
-export interface LayoutFooter extends Schema.Component {
-  collectionName: 'components_layout_footers';
-  info: {
-    displayName: 'Footer';
-    icon: 'bulletList';
-    description: '';
-  };
-  attributes: {
-    footerLogo: Attribute.Component<'layout.logo'>;
-    menuLinks: Attribute.Component<'links.link', true>;
-    legalLinks: Attribute.Component<'links.link', true>;
-    socialLinks: Attribute.Component<'links.social', true>;
+    metaTitle: Attribute.String;
+    metaDescription: Attribute.Text;
   };
 }
 
@@ -226,6 +184,48 @@ export interface LinksButton extends Schema.Component {
     text: Attribute.String;
     newTab: Attribute.Boolean;
     type: Attribute.Enumeration<['primary', 'secondary']>;
+  };
+}
+
+export interface LayoutNavbar extends Schema.Component {
+  collectionName: 'components_layout_navbars';
+  info: {
+    displayName: 'Navbar';
+    icon: 'house';
+    description: '';
+  };
+  attributes: {
+    links: Attribute.Component<'links.link', true>;
+    button: Attribute.Component<'links.button'>;
+    navbarLogo: Attribute.Component<'layout.logo'>;
+  };
+}
+
+export interface LayoutLogo extends Schema.Component {
+  collectionName: 'components_layout_logos';
+  info: {
+    displayName: 'Logo';
+    icon: 'apps';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media<'images'>;
+    text: Attribute.String;
+  };
+}
+
+export interface LayoutFooter extends Schema.Component {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'Footer';
+    icon: 'bulletList';
+    description: '';
+  };
+  attributes: {
+    footerLogo: Attribute.Component<'layout.logo'>;
+    menuLinks: Attribute.Component<'links.link', true>;
+    legalLinks: Attribute.Component<'links.link', true>;
+    socialLinks: Attribute.Component<'links.social', true>;
   };
 }
 
@@ -287,18 +287,18 @@ declare module '@strapi/types' {
     export interface Components {
       'shared.seo': SharedSeo;
       'shared.meta-social': SharedMetaSocial;
-      'meta.metadata': MetaMetadata;
       'sections.heading': SectionsHeading;
       'sections.form': SectionsForm;
       'sections.experience-group': SectionsExperienceGroup;
       'sections.education-group': SectionsEducationGroup;
       'sections.avatar': SectionsAvatar;
-      'layout.navbar': LayoutNavbar;
-      'layout.logo': LayoutLogo;
-      'layout.footer': LayoutFooter;
+      'meta.metadata': MetaMetadata;
       'links.social': LinksSocial;
       'links.link': LinksLink;
       'links.button': LinksButton;
+      'layout.navbar': LayoutNavbar;
+      'layout.logo': LayoutLogo;
+      'layout.footer': LayoutFooter;
       'elements.notification-banner': ElementsNotificationBanner;
       'elements.experience-item': ElementsExperienceItem;
       'elements.education-item': ElementsEducationItem;

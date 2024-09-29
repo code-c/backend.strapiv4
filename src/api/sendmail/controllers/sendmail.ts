@@ -3,11 +3,11 @@
  */
 
 export default {
-  send: async (ctx, next) => {
+  notify: async (ctx, next) => {
     try {
       const res = await strapi
         .service("api::sendmail.sendmail")
-        .send(ctx);
+        .emailService(ctx);
       ctx.body = res.message;
     } catch (err) {
       ctx.body = err;

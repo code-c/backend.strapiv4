@@ -2,8 +2,8 @@ export default {
   routes: [
      {
       method: 'POST',
-      path: '/sendmail/send',
-      handler: 'sendmail.send',
+      path: '/sendmail/notify',
+      handler: 'sendmail.notify',
       config: {
         policies: [],
         middlewares: [],
