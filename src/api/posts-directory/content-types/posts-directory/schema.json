@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "posts_directories",
+  "info": {
+    "singularName": "posts-directory",
+    "pluralName": "posts-directories",
+    "displayName": "PostsDirectory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "bannerImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "showSearch": {
+      "type": "boolean"
+    },
+    "Seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

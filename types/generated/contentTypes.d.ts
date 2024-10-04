@@ -1389,7 +1389,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.experience-group',
         'sections.education-group',
         'sections.avatar',
-        'sections.form'
+        'sections.form',
+        'sections.article-group'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1421,6 +1422,43 @@ export interface ApiPagePage extends Schema.CollectionType {
       'api::page.page'
     >;
     locale: Attribute.String;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiPostsDirectoryPostsDirectory extends Schema.SingleType {
+  collectionName: 'posts_directories';
+  info: {
+    singularName: 'posts-directory';
+    pluralName: 'posts-directories';
+    displayName: 'PostsDirectory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    description: Attribute.Text;
+    bannerImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    showSearch: Attribute.Boolean;
+    Seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::posts-directory.posts-directory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::posts-directory.posts-directory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
     sitemap_exclude: Attribute.Boolean &
       Attribute.Private &
       Attribute.DefaultTo<false>;
@@ -1532,6 +1570,7 @@ declare module '@strapi/types' {
       'api::contact-form-submission.contact-form-submission': ApiContactFormSubmissionContactFormSubmission;
       'api::global.global': ApiGlobalGlobal;
       'api::page.page': ApiPagePage;
+      'api::posts-directory.posts-directory': ApiPostsDirectoryPostsDirectory;
       'api::project.project': ApiProjectProject;
     }
   }

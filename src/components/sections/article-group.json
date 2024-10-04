@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_sections_article_groups",
+  "info": {
+    "displayName": "ArticleGroup"
+  },
+  "options": {},
+  "attributes": {
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    }
+  }
+}

@@ -53,7 +53,8 @@
         "sections.experience-group",
         "sections.education-group",
         "sections.avatar",
-        "sections.form"
+        "sections.form",
+        "sections.article-group"
       ]
     },
     "seo": {

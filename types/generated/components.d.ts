@@ -122,6 +122,20 @@ export interface SectionsAvatar extends Schema.Component {
   };
 }
 
+export interface SectionsArticleGroup extends Schema.Component {
+  collectionName: 'components_sections_article_groups';
+  info: {
+    displayName: 'ArticleGroup';
+  };
+  attributes: {
+    articles: Attribute.Relation<
+      'sections.article-group',
+      'oneToMany',
+      'api::article.article'
+    >;
+  };
+}
+
 export interface MetaMetadata extends Schema.Component {
   collectionName: 'components_meta_metadata';
   info: {
@@ -292,6 +306,7 @@ declare module '@strapi/types' {
       'sections.experience-group': SectionsExperienceGroup;
       'sections.education-group': SectionsEducationGroup;
       'sections.avatar': SectionsAvatar;
+      'sections.article-group': SectionsArticleGroup;
       'meta.metadata': MetaMetadata;
       'links.social': LinksSocial;
       'links.link': LinksLink;
